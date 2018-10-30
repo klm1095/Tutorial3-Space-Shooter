@@ -31,11 +31,6 @@ public class PlayerController : MonoBehaviour
             nextFire = Time.time + fireRate;
             Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
         }
-
-       if(Input.GetKey("escape"))
-        {
-            Application.Quit();
-        }
     }
 
     private void Start()

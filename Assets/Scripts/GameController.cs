@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
@@ -11,9 +12,9 @@ public class GameController : MonoBehaviour
     public float startWait;
     public float waveWait;
 
-    public GUIText scoreText;
-    public GUIText restartText;
-    public GUIText gameOverText;
+    public Text scoreText;
+    public Text restartText;
+    public Text gameOverText;
     private int score;
 
     private bool gameOver;
@@ -23,8 +24,6 @@ public class GameController : MonoBehaviour
     {
         gameOver = false;
         restart = false;
-        restartText.text = "";
-        gameOverText.text = "";
         score = 0;
         UpdateScore();
         StartCoroutine (SpawnWaves ());
@@ -38,6 +37,11 @@ public class GameController : MonoBehaviour
             {
                 Application.LoadLevel(Application.loadedLevel);
             }
+        }
+
+        if (Input.GetKey("escape"))
+        {
+            Application.Quit();
         }
     }
 
